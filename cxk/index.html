@@ -27,7 +27,7 @@
 <!-- onclick="bodyPlayMusic()" -->
 <body>
 
-<audio id="audioDom" src="media/jntm.wav" preload="auto" loop="loop"></audio>
+<audio id="audioDom" src="media/jntm.mp3" preload="auto" loop="loop"></audio>
 
 <div id="yhBtn" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff ; font-size:15px    ">
     <p>💥点“爆”</p>
@@ -93,7 +93,7 @@ show_date_time();
     </div>
     <div class="stage-container remove">
         <div class="page_two hide">
-            <div id="text" style="display:none;">春节倒计时就在左上角，提前祝你春节快乐！喜欢的话就发给你最好的几个朋友，让他们也永远幸福。但是，放烟花爆竹是违法行为，请大家不要模仿哦～</div>
+            <div id="text" style="display:none;">春节倒计时就在左上角，提前祝你春节快乐！你干嘛诶呦喂～</div>
             <div class="type_words" id="contents" style="font-size:.95rem;line-height:1.5rem;"></div>
         </div>
         <div class="canvas-container">
@@ -196,14 +196,14 @@ show_date_time();
         setTimeout(() => {
             start()
             fireworks();
-        }, 5000) // 这里的5000 是5s指烟花延时时间
+        }, 2500) // 这里的2500 是两秒半指烟花练习时长
         setTimeout(() => {
             function audioAutoPlay() {
                 var audio = document.getElementById('audioDom');
                 audio.play();
             }
             audioAutoPlay();
-        }, 5000) // 这里的5000 是5s指音乐延时时间
+        }, 2500) // 这里的2500 是两秒半指音乐练习时长
         console.log(updateConfig({autoLaunch: true }));
     })
     function fireworks() {
