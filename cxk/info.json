@@ -1,0 +1,143 @@
+{
+    "header": [
+        " *   ",
+        " *   如非需要调试，本文件可删除",
+        " *   非专业人员可将本文件删除",
+        " *   详细介绍请参考: https://bazhan.wang/faq#INFO-JSON",
+        " *   "
+    ],
+    "resources": [
+        {
+            "url": "https://20it.cn/a973060",
+            "path": "index.html",
+            "saved": true,
+            "size": 10388,
+            "children": [
+                {
+                    "url": "https://t2.picb.cc/2022/12/23/I2rVCs.png",
+                    "path": "img/I2rVCs.png",
+                    "saved": true,
+                    "size": 0,
+                    "children": []
+                },
+                {
+                    "url": "http://cdn.jcelyj.com/assets/TP1ayxwab/banner.jpg",
+                    "path": "img/banner.png",
+                    "saved": true,
+                    "size": 0,
+                    "children": []
+                },
+                {
+                    "url": "https://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js",
+                    "path": "js/jquery.min.js",
+                    "saved": true,
+                    "size": 84249,
+                    "children": []
+                },
+                {
+                    "url": "https://20it.cn/template/jump.js?v1.0.4",
+                    "path": "js/jump.js",
+                    "saved": true,
+                    "size": 1663,
+                    "children": []
+                },
+                {
+                    "url": "https://20it.cn/template/yanhua/js/fscreen@1.0.1.js",
+                    "saved": false
+                },
+                {
+                    "url": "https://20it.cn/template/yanhua/js/Stage@0.1.4.js",
+                    "path": "js/Stage@0.1.4.js",
+                    "saved": true,
+                    "size": 10192,
+                    "children": []
+                },
+                {
+                    "url": "https://20it.cn/template/yanhua/js/MyMath.js",
+                    "path": "js/MyMath.js",
+                    "saved": true,
+                    "size": 2171,
+                    "children": []
+                },
+                {
+                    "url": "https://20it.cn/template/yanhua/js/script.js",
+                    "saved": false
+                },
+                {
+                    "url": "https://20it.cn/template/yanhua/css/main.css?v1.0.01",
+                    "path": "css/main.css",
+                    "saved": true,
+                    "size": 9531,
+                    "children": []
+                },
+                {
+                    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/firework-burst-icon-v2.png",
+                    "saved": false
+                },
+                {
+                    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/firework-burst-icon-v2.png",
+                    "saved": false
+                },
+                {
+                    "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/firework-burst-icon-v2.png",
+                    "saved": false
+                },
+                {
+                    "url": "https://sf6-cdn-tos.douyinstatic.com/obj/ies-music/7170534431801838367.mp3",
+                    "path": "media/7170534431801838367.mp3",
+                    "saved": true,
+                    "size": 0,
+                    "children": []
+                }
+            ]
+        }
+    ],
+    "alias": "20it-cn-j57ni2hd",
+    "info": {
+        "remark": [],
+        "title": "跨年快乐",
+        "domain": "20it.cn",
+        "origin": "https://20it.cn",
+        "ip": "121.205.88.47",
+        "main": "index.html",
+        "url": "https://20it.cn/a973060",
+        "totalSize": "118 kB",
+        "request": {
+            "headers": {
+                "accept": "text/html,*/*",
+                "accept-language": "zh-CN,zh;q=0.9",
+                "cache-control": "no-cache",
+                "cookie": "",
+                "referer": "https://20it.cn/a973060",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36",
+                "x-scraper-website": "https://bazhan.wang/"
+            }
+        },
+        "response": {
+            "responseUrl": "https://20it.cn/a973060",
+            "redirects": [],
+            "statusCode": 200,
+            "headers": {
+                "server": "nginx",
+                "date": "Sat, 31 Dec 2022 07:52:18 GMT",
+                "content-type": "text/html; charset=utf-8",
+                "transfer-encoding": "chunked",
+                "connection": "close",
+                "vary": "Accept-Encoding",
+                "strict-transport-security": "max-age=31536000"
+            }
+        },
+        "time": {
+            "start": "2022-12-31T07:52:14.666Z",
+            "end": "2022-12-31T07:53:00.773Z"
+        }
+    },
+    "options": {
+        "url": "https://20it.cn/a973060",
+        "referer": "",
+        "cookies": "",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36",
+        "formatter": [],
+        "filenameGenerator": "byType"
+    }
+}
