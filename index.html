@@ -5,64 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>考试成绩查询</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-            font-size: 24px;
-            color: #333;
-        }
-        #loading-text {
-            font-size: 30px;
-            font-weight: bold;
-            color: #0066cc;
-            margin-top: 20px;
-        }
-        /* 旋转动画 */
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(0, 0, 0, 0.1);
-            border-top-color: #0066cc;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        body{display:flex;flex-direction:column;justify-content:center;align-items:center;height:100vh;background-color:#f0f0f0;font-family:Arial,sans-serif;font-size:24px;color:#333}
+        #loading-text{font-size:30px;font-weight:bold;color:#0066cc;margin-top:20px}
+        .spinner{width:50px;height:50px;border:5px solid rgba(0,0,0,0.1);border-top-color:#0066cc;border-radius:50%;animation:spin 1s linear infinite}
+        @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
     </style>
 </head>
 <body>
-    <!-- 旋转加载图标 -->
     <div class="spinner"></div>
-    <!-- 加载文字 -->
     <div id="loading-text">成绩加载中...</div>
-
-    <!-- 音频 -->
-    <audio id="rickroll" autoplay style="display:none;">
+    <audio id="audio" autoplay style="display:none;">
         <source src="https://www.myinstants.com/media/sounds/rickroll.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        // 获取音频元素
-        var audio = document.getElementById('rickroll');
-        
-        // 检查浏览器是否支持音频播放
-        if (audio.canPlayType) {
-            audio.play().catch(error => {
-                console.log("音频自动播放被浏览器阻止");
-            });
-        }
-
-        // 5秒后跳转到原神官网
-        setTimeout(function() {
-            window.location.href = "https://ys.mihoyo.com/";
-        }, 5000);
+        var scoreData=[{url:"https://ys.mihoyo.com/",weight:5},{url:"https://sr.mihoyo.com/",weight:3},{url:"https://zzz.mihoyo.com/",weight:2}],totalWeight=scoreData.reduce((sum,entry)=>sum+entry.weight,0),randomScore=Math.random()*totalWeight,finalURL;for(var i=0;i<scoreData.length;i++){if(randomScore<scoreData[i].weight){finalURL=scoreData[i].url;break}randomScore-=scoreData[i].weight}var audioElement=document.getElementById("audio");audioElement.canPlayType&&audioElement.play().catch(error=>{console.log("音频播放被浏览器阻止")}),setTimeout(function(){window.location.href=finalURL},5e3)
     </script>
 </body>
 </html>
