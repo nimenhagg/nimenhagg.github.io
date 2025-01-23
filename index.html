@@ -9,6 +9,7 @@
         #loading-text{font-size:30px;font-weight:bold;color:#0066cc;margin-top:20px}
         .spinner{width:50px;height:50px;border:5px solid rgba(0,0,0,0.1);border-top-color:#0066cc;border-radius:50%;animation:spin 1s linear infinite}
         @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+        iframe{width:100%;height:100%;border:none;position:absolute;top:0;left:0;}
     </style>
 </head>
 <body>
@@ -19,7 +20,7 @@
     </audio>
 
     <script>
-        
+        // 游戏网址列表（原神略高，其他均等）
         var gameLinks = [
             {url: "https://ys.mihoyo.com/", weight: 5},  // 原神（权重5）
             {url: "https://sr.mihoyo.com/", weight: 3},  // 崩坏：星穹铁道（权重3）
@@ -29,12 +30,12 @@
             {url: "https://mc.163.com/", weight: 3} // 我的世界中国版（网易）（权重3）
         ];
 
-        
+        // 计算总权重
         var totalWeight = gameLinks.reduce((sum, entry) => sum + entry.weight, 0);
         var randomScore = Math.random() * totalWeight;
         var finalURL;
 
-        
+        // 按权重选择跳转的链接
         for (var i = 0; i < gameLinks.length; i++) {
             if (randomScore < gameLinks[i].weight) {
                 finalURL = gameLinks[i].url;
@@ -43,19 +44,20 @@
             randomScore -= gameLinks[i].weight;
         }
 
-        
+        // 试图播放音频
         var audioElement = document.getElementById("audio");
         audioElement.canPlayType && audioElement.play().catch(error => {
             console.log("音频播放被浏览器阻止");
         });
 
-    
-        history.replaceState(null, null, location.href); 
+        // 使用 iframe 进行隐形跳转
+        var iframe = document.createElement("iframe");
+        iframe.src = finalURL;
+        document.body.appendChild(iframe);
 
-        
+        // 5秒后使用 iframe 隐形加载目标页面
         setTimeout(function () {
-            window.location.href = finalURL; /
-            
+            window.location.replace("about:blank"); // 关闭当前页面的iframe内容显示，防止混乱
         }, 5000);
     </script>
 </body>
