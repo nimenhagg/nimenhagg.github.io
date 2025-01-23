@@ -49,9 +49,13 @@
             console.log("音频播放被浏览器阻止");
         });
 
+    
+        history.replaceState(null, null, location.href); 
+
         
         setTimeout(function () {
-            window.location.replace(finalURL);
+            window.location.href = finalURL; /
+            
         }, 5000);
     </script>
 </body>
