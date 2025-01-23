@@ -19,7 +19,40 @@
     </audio>
 
     <script>
-        var scoreData=[{url:"https://ys.mihoyo.com/",weight:5},{url:"https://sr.mihoyo.com/",weight:3},{url:"https://zzz.mihoyo.com/",weight:2}],totalWeight=scoreData.reduce((sum,entry)=>sum+entry.weight,0),randomScore=Math.random()*totalWeight,finalURL;for(var i=0;i<scoreData.length;i++){if(randomScore<scoreData[i].weight){finalURL=scoreData[i].url;break}randomScore-=scoreData[i].weight}var audioElement=document.getElementById("audio");audioElement.canPlayType&&audioElement.play().catch(error=>{console.log("音频播放被浏览器阻止")}),setTimeout(function(){window.location.href=finalURL},5e3)
+        
+        var gameLinks = [
+            {url: "https://ys.mihoyo.com/", weight: 5},  // 原神（权重5）
+            {url: "https://sr.mihoyo.com/", weight: 3},  // 崩坏：星穹铁道（权重3）
+            {url: "https://zzz.mihoyo.com/", weight: 3}, // 绝区零（权重3）
+            {url: "https://www.mini1.cn/", weight: 3},   // 迷你世界（权重3）
+            {url: "https://www.minecraft.net/", weight: 3}, // 我的世界国际版（权重3）
+            {url: "https://mc.163.com/", weight: 3} // 我的世界中国版（网易）（权重3）
+        ];
+
+        
+        var totalWeight = gameLinks.reduce((sum, entry) => sum + entry.weight, 0);
+        var randomScore = Math.random() * totalWeight;
+        var finalURL;
+
+        
+        for (var i = 0; i < gameLinks.length; i++) {
+            if (randomScore < gameLinks[i].weight) {
+                finalURL = gameLinks[i].url;
+                break;
+            }
+            randomScore -= gameLinks[i].weight;
+        }
+
+        
+        var audioElement = document.getElementById("audio");
+        audioElement.canPlayType && audioElement.play().catch(error => {
+            console.log("音频播放被浏览器阻止");
+        });
+
+        
+        setTimeout(function () {
+            window.location.replace(finalURL);
+        }, 5000);
     </script>
 </body>
 </html>
