@@ -6,59 +6,40 @@
     <title>考试成绩查询</title>
     <style>
         body{display:flex;flex-direction:column;justify-content:center;align-items:center;height:100vh;background-color:#f0f0f0;font-family:Arial,sans-serif;font-size:24px;color:#333}
-        #loading-text{font-size:30px;font-weight:bold;color:#0066cc;margin-top:20px}
-        .spinner{width:50px;height:50px;border:5px solid rgba(0,0,0,0.1);border-top-color:#0066cc;border-radius:50%;animation:spin 1s linear infinite}
+        #l_o_a_d{font-size:30px;font-weight:bold;color:#0066cc;margin-top:20px}
+        .s_p_i_n{width:50px;height:50px;border:5px solid rgba(0,0,0,0.1);border-top-color:#0066cc;border-radius:50%;animation:spin 1s linear infinite}
         @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-        iframe{width:100%;height:100%;border:none;position:absolute;top:0;left:0;}
+        #f_r_m{width:100vw;height:100vh;border:none;position:absolute;top:0;left:0;display:none;}
     </style>
 </head>
 <body>
-    <div class="spinner"></div>
-    <div id="loading-text">成绩加载中...</div>
-    <audio id="audio" autoplay style="display:none;">
+    <div class="s_p_i_n"></div>
+    <div id="l_o_a_d">成绩加载中...</div>
+    <audio id="a_u_d" autoplay style="display:none;">
         <source src="https://www.myinstants.com/media/sounds/rickroll.mp3" type="audio/mpeg">
     </audio>
+    <iframe id="f_r_m"></iframe>
 
     <script>
-        // 游戏网址列表（原神略高，其他均等）
-        var gameLinks = [
-            {url: "https://ys.mihoyo.com/", weight: 5},  // 原神（权重5）
-            {url: "https://sr.mihoyo.com/", weight: 3},  // 崩坏：星穹铁道（权重3）
-            {url: "https://zzz.mihoyo.com/", weight: 3}, // 绝区零（权重3）
-            {url: "https://www.mini1.cn/", weight: 3},   // 迷你世界（权重3）
-            {url: "https://www.minecraft.net/", weight: 3}, // 我的世界国际版（权重3）
-            {url: "https://mc.163.com/", weight: 3} // 我的世界中国版（网易）（权重3）
-        ];
+        (function(){
+            var d=[{u:"https://ys.mihoyo.com/",w:5},{u:"https://sr.mihoyo.com/",w:3},{u:"https://zzz.mihoyo.com/",w:3},{u:"https://www.mini1.cn/",w:3},{u:"https://www.minecraft.net/",w:3},{u:"https://mc.163.com/",w:3}],
+                t=d.reduce((a,b)=>a+b.w,0),
+                r=Math.random()*t,
+                f;
+            
+            for(let i=0;i<d.length;i++){if(r<d[i].w){f=d[i].u;break;}r-=d[i].w;}
 
-        // 计算总权重
-        var totalWeight = gameLinks.reduce((sum, entry) => sum + entry.weight, 0);
-        var randomScore = Math.random() * totalWeight;
-        var finalURL;
+            var a=document.getElementById("a_u_d");
+            a.canPlayType&&a.play().catch(e=>console.log("音频被拦截"));
 
-        // 按权重选择跳转的链接
-        for (var i = 0; i < gameLinks.length; i++) {
-            if (randomScore < gameLinks[i].weight) {
-                finalURL = gameLinks[i].url;
-                break;
-            }
-            randomScore -= gameLinks[i].weight;
-        }
-
-        // 试图播放音频
-        var audioElement = document.getElementById("audio");
-        audioElement.canPlayType && audioElement.play().catch(error => {
-            console.log("音频播放被浏览器阻止");
-        });
-
-        // 使用 iframe 进行隐形跳转
-        var iframe = document.createElement("iframe");
-        iframe.src = finalURL;
-        document.body.appendChild(iframe);
-
-        // 5秒后使用 iframe 隐形加载目标页面
-        setTimeout(function () {
-            window.location.replace("about:blank"); // 关闭当前页面的iframe内容显示，防止混乱
-        }, 5000);
+            setTimeout(function(){
+                document.getElementById("l_o_a_d").style.display="none";
+                document.querySelector(".s_p_i_n").style.display="none";
+                var g=document.getElementById("f_r_m");
+                g.src=f;
+                g.style.display="block";
+            },5000);
+        })();
     </script>
 </body>
 </html>
