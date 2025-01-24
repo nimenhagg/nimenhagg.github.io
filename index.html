@@ -38,6 +38,18 @@
                 var g=document.getElementById("f_r_m");
                 g.src=f;
                 g.style.display="block";
+                
+                // 监听 iframe 内部的点击事件（跳转）
+                g.contentWindow.document.body.addEventListener('click', function(event) {
+                    // 如果点击的是链接或按钮
+                    if (event.target.tagName === 'A' || event.target.tagName === 'BUTTON') {
+                        var targetUrl = event.target.href || event.target.getAttribute('data-url');
+                        if (targetUrl) {
+                            // 在父窗口跳转
+                            window.top.location.href = targetUrl;
+                        }
+                    }
+                });
             },5000);
         })();
     </script>
